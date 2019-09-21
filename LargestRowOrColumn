@@ -1,0 +1,61 @@
+#include <iostream>
+using namespace std;
+
+void findLargest(int arr[][1000], int row, int col){
+
+
+  /* Don't write main().
+   *  Don't read input, it is passed as function argument.
+   * Print output as specified in the question.
+   */
+    int rsum=0,csum=0,min=-2147483648,y=-2147483648,t,a;
+    for(int i=0;i<row;i++){
+        for(int j=0;j<col;j++){
+            rsum=rsum+arr[i][j];
+        }
+       // cout<<"row\t"<<i<<" "<<rsum<<endl;
+        if(min<rsum){
+         t=i;   
+        min=rsum;
+        }
+        rsum=0;
+      
+    }
+    
+    for(int j=0;j<col;j++){
+        for(int i=0;i<row;i++){
+            csum=csum+arr[i][j];
+        }
+       // cout<<"column"<<" "<<j<<" "<<csum<<endl;
+        if(y<csum){
+         a=j;   
+        y=csum;
+        }
+        csum=0;
+    }
+    
+  if(min>y){
+      cout<<"row"<<" "<<t<<" "<<min<<endl;
+  }
+  else{
+      cout<<"column"<<" "<<a<<" "<<y<<endl;
+  
+  }
+}
+
+
+
+int main() {
+	// your code goes here
+	
+	int row,col;
+	cin >> row >> col;
+	
+	int input[1000][1000];
+	for(int i=0;i<row;i++){
+	    for(int j=0;j<col;j++){
+	        cin >> input[i][j];
+	    }
+	}
+	findLargest(input,row,col);
+}
